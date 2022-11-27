@@ -2,7 +2,6 @@ name: full end to end devsecops workflow
 on: push
 
 
-name: main workflow
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
