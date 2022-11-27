@@ -30,6 +30,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Run synk to check for vulnerabilities
         uses: snyk/actions/node@master
+        continue-on-error: true
         env: 
           SYNK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   zapScan:
