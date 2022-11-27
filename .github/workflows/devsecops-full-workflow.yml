@@ -23,3 +23,10 @@ jobs:
           -Dsonar.organization=qiushengchu
           -Dsonar.projectKey=endtoendnodeJS
           -Dsonar.verbose=true
+  snyk:
+    runs-on: ubuntu-lastest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run synk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env: SYNK_TOKEN: ${{ secrets.SNYK_TOKEN }}
