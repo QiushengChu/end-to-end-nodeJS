@@ -24,6 +24,7 @@ jobs:
           -Dsonar.projectKey=endtoendnodeJS
           -Dsonar.verbose=true
   snyk:
+    needs: sonarcloud
     runs-on: ubuntu-lastest
     steps:
       - uses: actions/checkout@master
@@ -31,3 +32,19 @@ jobs:
         uses: snyk/actions/node@master
         env: 
           SYNK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+  zapScan:
+    needs: snyk
+    runs-on: ubuntu-latest
+    name: scan the web application
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          reg: master
+      - name: zap scan
+        uses: zaproxy/action-baseline@v.0.7.0
+        with:
+          docker_name: 'owas/zap2docker-statble'
+          target: 'https://zaproxy.org'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a'
