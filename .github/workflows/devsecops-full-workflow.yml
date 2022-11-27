@@ -29,4 +29,5 @@ jobs:
       - uses: actions/checkout@master
       - name: Run synk to check for vulnerabilities
         uses: snyk/actions/node@master
-        env: SYNK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        env: 
+          SYNK_TOKEN: ${{ secrets.SNYK_TOKEN }}
