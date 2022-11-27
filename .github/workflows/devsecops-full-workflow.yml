@@ -32,7 +32,7 @@ jobs:
         uses: snyk/actions/node@master
         continue-on-error: true
         env: 
-          SYNK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   zapScan:
     needs: snyk
     runs-on: ubuntu-latest
