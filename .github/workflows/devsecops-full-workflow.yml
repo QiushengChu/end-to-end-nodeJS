@@ -43,7 +43,7 @@ jobs:
         with:
           reg: master
       - name: zap scan
-        uses: zaproxy/action-baseline@v.0.7.0
+        uses: zaproxy/action-baseline@v0.7.0
         with:
           docker_name: 'owas/zap2docker-statble'
           target: 'https://zaproxy.org'
