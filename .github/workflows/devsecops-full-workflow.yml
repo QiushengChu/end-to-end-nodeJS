@@ -1,4 +1,4 @@
-name: full end to end devsecops workflow
+name: full end to end devsecops workflows
 on: push
 
 
